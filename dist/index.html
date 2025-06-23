@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WebSOCKETF Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .controls {
+      display: flex;
+      gap: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+    button:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+    .status {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-top: 20px;
+    }
+    .call-info {
+      margin-top: 20px;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logout-btn {
+      background-color: #f44336;
+    }
+    .logout-btn:hover {
+      background-color: #da190b;
+    }
+  </style>
+  <script type="module" crossorigin src="/assets/index-CXKeVqK1.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h2>WebSOCKETF Demo</h2>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+    
+    <div class="controls">
+      <button id="callBtn" disabled>Submit</button>
+      <button id="hangupBtn" disabled>exit</button>
+    </div>
+
+    <div class="status" id="status">Checking login status...</div>
+    
+    <div class="call-info">
+      <h3>Call Status</h3>
+      <div id="callStatus">No active call</div>
+    </div>
+
+    <audio id="remoteAudio" autoplay></audio>
+  </div>
+
+  <script src="webrtc-client.js"></script>
+</body>
+</html>
