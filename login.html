@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebRTC FreeSWITCH Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2>WebRTC FreeSWITCH Login</h2>
+    <form class="login-form" onsubmit="handleLogin(event)">
+        <input type="text" id="sipServer" placeholder="SIP Server (e.g., sip.example.com)" required>
+        <input type="text" id="sipUsername" placeholder="SIP Username" required>
+        <input type="password" id="sipPassword" placeholder="SIP Password" required>
+        <input type="text" id="sipDomain" placeholder="SIP Domain" required>
+        <button type="submit">Login</button>
+    </form>
+
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            const sipConfig = {
+                server: document.getElementById('sipServer').value,
+                username: document.getElementById('sipUsername').value,
+                password: document.getElementById('sipPassword').value,
+                domain: document.getElementById('sipDomain').value
+            };
+
+            // Store the configuration
+            localStorage.setItem('sipConfig', JSON.stringify(sipConfig));
+            
+            // Redirect to main page
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html> 
